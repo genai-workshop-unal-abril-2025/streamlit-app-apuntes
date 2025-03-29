@@ -1,0 +1,6 @@
+streamlit
+ibm-watsonx-ai
+ibm-cloud-sdk-core
+python-dotenv
+chromadb
+sentence-transformers

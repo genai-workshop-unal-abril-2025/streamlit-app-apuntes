@@ -60,6 +60,8 @@ def call_watsonx_vision_model(image):
     #Definir la url a la que se va a hacer la consulta:
     url = "https://us-south.ml.cloud.ibm.com/ml/v1/text/chat?version=2023-05-29"
 
+    #Definir el prompt que queremos realizar a el modelo:
+    prompt = "En la imagen hay apuntes tomados por una persona en un documento digital o en un documento fisico, por favor extrae todo el texto que esta anotado en esos apuntes.\n\n Por favor unicamente responde con el texto que encuentres en los apuntes, no incluyas informacion fuera de lo escrito en la imagen. Si no encuentras texto en la imagen responde 'No se encontro texto en la imagen proporcionada'.  Los apuntes de la imagen dicen:\n\n"
 
     #Definir el body de la peticion, en esta se incluye el prompt que vamos a hacer y la imagen en los mensajes
     body = {
@@ -67,7 +69,7 @@ def call_watsonx_vision_model(image):
         {"role":"user",
          "content":[
             {"type":"text",
-              "text":"En la imagen hay apuntes tomados por una persona en un documento digital o en un documento fisico, por favor extrae todo el texto que esta en ese documento de apuntes. Unicamente menciona el texto que esta en los apuntes, no digas nada mas."
+              "text":prompt
             },
             {"type":"image_url",
              "image_url":{"url":f"data:image/png;base64,{image_utf8_string}"}

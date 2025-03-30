@@ -1,8 +1,13 @@
 import chromadb
 import streamlit as st
 from chromadb.utils import embedding_functions
-
 from watsonx_connection import call_watsonx
+import torch
+
+#Esta imagen previene que salga una advertencia en consola
+#Por un error que tiene temporalmente Streamlit con Torch.
+#No es obligatoria y no tiene relacion con la aplicacion
+torch.classes.__path__ = [] 
 
 st.write("## Realizar una consulta a un LLM que se soporta en los apuntes mas relevantes")
 
@@ -12,7 +17,7 @@ chroma_client = chromadb.PersistentClient(path="./chroma")
 # Realizar una consulta a un LLM que se soporta en los documentos mas relevantes
 #Para esto, primero se verifica que exista la coleccion en chroma dentro del proyecto
 if "apuntes" in chroma_client.list_collections():
-    st.write("En el siguiente espacio puedes escribir una pregunta para realizar a un LLM, el cual va a intentar resolverla teniendo en cuenta los 5 documentos (apuntes) más relevantes que esten almacenados en la base de datos vectorial")
+    st.write("En el siguiente espacio puedes escribir una pregunta para realizar a un LLM, el cual va a intentar resolverla teniendo en cuenta los 3 documentos (apuntes) más relevantes que esten almacenados en la base de datos vectorial.")
     texto_consulta_llm = st.text_input("Escribe tu consulta para el LLM",placeholder="Escribe tu consulta")
 
     boton_consulta_llm = st.button("Consultar al LLM")
@@ -29,7 +34,7 @@ if "apuntes" in chroma_client.list_collections():
         )
         documentos = collection_apuntes.query(
             query_texts = [texto_consulta_llm],
-            n_results=5
+            n_results=3
         )
 
         #Se construye un string con cada uno de los apuntes
@@ -39,9 +44,12 @@ if "apuntes" in chroma_client.list_collections():
             string_apuntes += f"Apunte {index+1}: {documentos['documents'][0][index]}\n\n"
 
         #Una vez se tiene un string con todos los apuntes relevantes se arma el prompt final para el modelo
-        prompt_final = f'''Eres un asistente encargado de resolver preguntas del usuario basandote principalmente en los apuntes que se tienen guardados sobre el tema de la pregunta del usuario
-Tu objetivo es responder la pregunta del usuario basandote principalmente en los apuntes, en caso de que en los apuntes no haya informacion que consideres relevante para resolver la pregunta del usuario entonces 
-unicamente responde "No se encontraron apuntes relevantes para la pregunta" y mencionas cual fue la pregunta del usuario.
+        prompt_final = f'''Eres un asistente encargado de resolver preguntas del usuario basandote principalmente en los apuntes que se tienen guardados sobre el tema de la pregunta del usuario.
+
+Tu objetivo es responder la pregunta del usuario basandote principalmente en la siguiente lista de apuntes, 
+en caso de que en los apuntes no haya informacion que consideres relevante para resolver la pregunta del usuario 
+entonces unicamente responde "No se encontraron apuntes relevantes para la pregunta"
+ y mencionas cual fue la pregunta del usuario.
 
 La lista de apuntes es la siguiente:\n
 {string_apuntes}
@@ -55,12 +63,12 @@ Tu respuesta es:\n
         respuesta_llm = call_watsonx(prompt_final)
         
         #Una vez armado el prompt se muestra el prompt en la aplicacion para mostrar exactamente la consulta realizada
-        with st.expander("📊 Prompt utilizado en la consulta", expanded=False):
+        with st.expander("📄 Prompt utilizado en la consulta", expanded=False):
             st.write(prompt_final)
         
-        with st.expander("📊 Respuesta generada", expanded=True):
+        with st.expander("✨ Respuesta generada", expanded=True):
             st.write(respuesta_llm)
 
 
 else:
-    st.write("No has agregado apuntes a la base de datos, por favor agregalos para poder realizar consultas en esta pestaña")
+    st.warning("No has agregado apuntes a la base de datos, por favor agregalos para poder realizar consultas en esta pestaña")

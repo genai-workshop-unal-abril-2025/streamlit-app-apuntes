@@ -1,6 +1,12 @@
 import chromadb
 from chromadb.utils import embedding_functions
 import streamlit as st
+import torch
+
+#Esta imagen previene que salga una advertencia en consola
+#Por un error que tiene temporalmente Streamlit con Torch.
+#No es obligatoria y no tiene relacion con la aplicacion
+torch.classes.__path__ = [] 
 
 st.write("## Visualizar los documentos almacenados en la base de datos vectorial")
 
@@ -9,7 +15,7 @@ chroma_client = chromadb.PersistentClient(path="./chroma")
 
 #Se verifica que exista la collecion apuntes en la base de datos
 if "apuntes" in chroma_client.list_collections():
-    st.write("Pulsando en el siguiente boton se pueden visualizar algunos de los documentos guardados en la base de datos")
+    st.write("Pulsando en el siguiente boton se pueden visualizar los documentos guardados en la base de datos")
 
     boton_ver_coleccion = st.button("Ver documentos en la coleccion")
     if boton_ver_coleccion:
@@ -26,7 +32,8 @@ if "apuntes" in chroma_client.list_collections():
         
         #Se realiza un bucle para recorrer los documentos y mostrarlos
         for index in range(len(documentos['ids'])):
-            st.write(f"{documentos['ids'][index]}: {documentos['documents'][index]}")
+            with st.expander(f"_{documentos['ids'][index]}_", expanded=False): 
+                st.write(documentos['documents'][index])
 
 else:
-    st.write("No has agregado apuntes a la base de datos, por favor agregalos para poder visualizarlos en esta pestaña")
+    st.warning("No has agregado apuntes a la base de datos, por favor agregalos para poder visualizarlos en esta pestaña")

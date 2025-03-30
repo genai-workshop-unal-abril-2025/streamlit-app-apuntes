@@ -2,9 +2,11 @@
 
 ### Prerrequisitos:
 - Tener instalado Python. (Python 3.12.9 es la version recomendada)
+- (Opcional) Tener instalado Visual Studio Code.
 
 ### Paso 1: Clonar o descargar este repositorio en tu computadora.
 
-### Paso 2: Abre el repositorio en tu computadora con un editor de código.
+![Imagen Proyecto en mis archivos](./ImagenesREADME/RepositorioDescargado.png)
 
-![Imagen Proyecto en el editor](./ImagenesEjemplo/EjemploArcoiris.jpg)
+### Paso 2: Abre el repositorio con un editor de código (Se recomienda Visual Studio Code).
+

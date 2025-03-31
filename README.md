@@ -1,7 +1,7 @@
 # Guia para la ejecución local de Apuntes App
 
 ## Prerrequisitos:
-- Tener instalado Python. (Python 3.12.9 es la version recomendada)
+- Tener instalado Python. (**Python 3.11.9** es la version recomendada. las versiones 3.12 y 3.13 requieren adicionalmente descargar las Visual Studio Build Tools para pdoer ejecutar la app)
 - (Opcional) Tener instalado Visual Studio Code.
 
 ## Paso 1: Clonar o descargar este repositorio en tu computadora.
@@ -60,7 +60,7 @@ Para verificar la versión de python instalada en el equipo se puede usar el com
 py --list
 ```
 
-En la consola se deberia ver una lista de las versiones de Python instaladas. Por ejemplo, en este caso unicamente se tiene instalada la version 3.12:
+En la consola se deberia ver una lista de las versiones de Python instaladas. Por ejemplo, en este caso unicamente se tienen instaladas la version 3.11 y 3.12:
 
 ![Imagen Versiones Python](./ImagenesREADME/VerVersionesPython.png)
 
@@ -72,10 +72,10 @@ Para crear un entorno virtual con nombre _.venv_ se debe usar el siguiente coman
 py -3.X -m venv .venv
 ```
 
-Por ejemplo, para el caso de Python 3.12 seria:
+Por ejemplo, para el caso de Python 3.11 (que es la version recomendada) seria:
 
 ```console
-py -3.12 -m venv .venv
+py -3.11 -m venv .venv
 ```
 
 Tras ejecutar el comando debio crearse la carpeta _.venv_ dentro del proyecto:

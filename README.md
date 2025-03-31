@@ -12,7 +12,7 @@
 
 ![Imagen Repositorio en VisualStudioCode](./ImagenesREADME/RepostiorioEnVSCode.png)
 
-## Paso 3: Crear un archivo _.env_ con las variables de entorno necesarias para acceder a Watson.
+## Paso 3: Crear un archivo _.env_ con las variables de entorno necesarias para acceder a WatsonX.
 
 ### Paso 3.1: Crear el archivo _.env_ en la carpeta del proyecto.
 

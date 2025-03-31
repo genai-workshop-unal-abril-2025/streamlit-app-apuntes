@@ -34,7 +34,7 @@ En la consola se deberia ver una lista de las versiones de Python instaladas. Po
 
 #### Paso 3.3: Crear el entorno virtual con una version de Python espefica:
 
-Para crear un entorno virtual con nombre _.env_ se debe usar el siguiente comando, donde la X se debe remplazar por la versión de Python con la que se quiere crear el entorno virtual:
+Para crear un entorno virtual con nombre _.venv_ se debe usar el siguiente comando, donde la X se debe remplazar por la versión de Python con la que se quiere crear el entorno virtual:
 
 ```console
 py -3.X -m venv .venv
@@ -46,4 +46,38 @@ Por ejemplo, para el caso de Python 3.12 seria:
 py -3.12 -m venv .venv
 ```
 
+Tras ejecutar el comando debio crearse la carpeta _.venv_ dentro del proyecto:
+
+![Imagen .venv creado](./ImagenesREADME/CreadoEntornoVirtual.png)
+
+### Paso 4: Activar el entorno virtual en una consola:
+
+#### Paso 4.1: Crear una terminal ubicada en la carpeta del proyecto:
+
+![Imagen Terminal Inicio](./ImagenesREADME/ImagenTerminalInicio.png)
+
+#### Paso 4.2: Activar el entorno virtual en la terminal
+
+Para activar el entorno virtual se debe ejecutar el siguiente comando en la terminal de Powershell:
+
+```console
+.\.venv\Scripts\activate.ps1
+```
+
+En caso de que sea una terminal de comandos de Windows se puede ejecutar: 
+```console
+.\.venv\Scripts\activate.bat
+```
+
+Tras ejecutar el comando en la parte izquierda de la terminal deberia verse el nombre del entorno virtual activado:
+
+![Imagen entorno activado creado](./ImagenesREADME/EntornoVirtualActivado.png)
+
+### Paso 5: Crear un archivo _.env_ donde se almacenen las variables de entorno necesarias para acceder a Watson.
+
+#### Paso 5.1: Crear el archivo _.env_ en la carpeta del proyecto.
+
+Se debe crear un archivo que unicamente se llame _.env_ en la carpeta del proyecto. Es recomendable crearlo desde Visual Studio Code, para asegurar se que el nombre del archivo sea unicamente _.env_
+
+Tras crear el archivo, el proyecto deberia verse de la siguiente manera:
 

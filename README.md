@@ -95,4 +95,9 @@ WATSONX_PROJECT_ID =
 
 Se deben copiar estas tres variables dentro del archivo _.env_ del proyecto:
 
+![Imagen archivo .env parcial](./ImagenesREADME/ENVparcialmentelleno.png)
+
+Tras esto, debe escribir el API_KEY y el Project_ID que le sea asignado por los tutores durante el taller en las variables WATSONX_API_KEY y WATSONX_PROJECT_ID respectivamente.
+
+Un ejemplo de cómo deberia verse el archivo _.env_ tras incluir los valores dados por los tutores es el siguiente:
 

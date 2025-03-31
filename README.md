@@ -81,3 +81,18 @@ Se debe crear un archivo que unicamente se llame _.env_ en la carpeta del proyec
 
 Tras crear el archivo, el proyecto deberia verse de la siguiente manera:
 
+![Imagen archivo .env vacio](./ImagenesREADME/EnvVacio.png)
+
+#### Paso 5.2: Escribir las variables de entorno necesarias en el archivo _.env_:
+
+Las variables de entorno que se deben escribir son las siguientes:
+
+```python
+WATSONX_API_KEY = 
+IBM_CLOUD_URL = https://us-south.ml.cloud.ibm.com
+WATSONX_PROJECT_ID = 
+```
+
+Se deben copiar estas tres variables dentro del archivo _.env_ del proyecto:
+
+

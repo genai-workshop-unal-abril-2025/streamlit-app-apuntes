@@ -73,7 +73,7 @@ if st.session_state["imagenes_apuntes"]:
     
     if st.session_state["lista_textos_extraidos"]:
         for index in range(len(st.session_state["lista_textos_extraidos"])):
-            with st.expander(f"Texto extraido de la imagen _{st.session_state["imagenes_apuntes"][index].name}_", expanded=False): 
+            with st.expander(f"Texto extraido de la imagen _{st.session_state['imagenes_apuntes'][index].name}_", expanded=False): 
                 st.write(st.session_state["lista_textos_extraidos"][index])
 
 

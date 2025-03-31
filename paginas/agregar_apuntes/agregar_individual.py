@@ -48,7 +48,7 @@ if selector_modo_imagen == "Subir una imagen":
         st.session_state["imagen_apuntes"] = uploaded_file
 
         #Mostrar la imagen subida
-        st.write(f"La imagen subida es:")
+        st.write("La imagen subida es:")
         st.image(st.session_state["imagen_apuntes"])
     
     else:
@@ -82,7 +82,7 @@ if st.session_state["imagen_apuntes"]:
         st.session_state["texto_extraido"] = call_watsonx_vision_model(st.session_state["imagen_apuntes"])
     
     if st.session_state["texto_extraido"]:
-        with st.expander(f"Texto extraido de la imagen _{st.session_state["imagen_apuntes"].name}_ :", expanded=True): 
+        with st.expander(f"Texto extraido de la imagen _{st.session_state['imagen_apuntes'].name}_ :", expanded=True): 
             st.write(st.session_state["texto_extraido"])
 
 #Verificar que se haya extraido un texto antes de continuar con el siguiente paso
@@ -97,7 +97,7 @@ if st.session_state["texto_extraido"]:
         st.session_state["embedding_ejemplo"] = modelo_embedding.encode(st.session_state["texto_extraido"]).tolist()
 
     if st.session_state["embedding_ejemplo"] != None:
-        st.write(f"Tamaño del embedding: {len(st.session_state["embedding_ejemplo"])}")
+        st.write(f"Tamaño del embedding: {len(st.session_state['embedding_ejemplo'])}")
         st.write("Valores que componen el vector:")
         st.write(st.session_state["embedding_ejemplo"])
 

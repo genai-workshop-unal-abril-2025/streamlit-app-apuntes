@@ -12,7 +12,40 @@
 
 ![Imagen Repositorio en VisualStudioCode](./ImagenesREADME/RepostiorioEnVSCode.png)
 
-### Paso 3: Crear un entorno virtual de Python para ejecutar la aplicación. 
+### Paso 3: Crear un archivo _.env_ con las variables de entorno necesarias para acceder a Watson.
+
+#### Paso 3.1: Crear el archivo _.env_ en la carpeta del proyecto.
+
+Se debe crear un archivo que unicamente se llame _.env_ en la carpeta del proyecto. Es recomendable crearlo desde Visual Studio Code, para asegurar se que el nombre del archivo sea unicamente _.env_
+
+Tras crear el archivo, el proyecto deberia verse de la siguiente manera:
+
+![Imagen archivo .env vacio](./ImagenesREADME/EnvVacio.png)
+
+#### Paso 3.2: Escribir las variables de entorno necesarias en el archivo _.env_:
+
+Las variables de entorno que se deben escribir son las siguientes:
+
+```python
+WATSONX_API_KEY = 
+IBM_CLOUD_URL = https://us-south.ml.cloud.ibm.com
+WATSONX_PROJECT_ID = 
+```
+
+Se deben copiar estas tres variables dentro del archivo _.env_ del proyecto:
+
+![Imagen archivo .env parcial](./ImagenesREADME/ENVparcialmentelleno.png)
+
+Tras esto, debe escribir el API_KEY y el Project_ID que le sea asignado por los tutores durante el taller en las variables WATSONX_API_KEY y WATSONX_PROJECT_ID respectivamente.
+
+Un ejemplo de cómo deberia verse el archivo _.env_ tras incluir los valores dados por los tutores es el siguiente:
+
+![Imagen archivo .env lleno](./ImagenesREADME/envlleno.png)
+
+#### Paso 3.3: Guardar el archivo _.env_
+
+
+### Paso 4: Crear un entorno virtual de Python para ejecutar la aplicación. 
 
 Adventencia: Los pasos mostrados a continuación fueron realizados en un equipo con Windows. Para otros sistemas operativos los comandos pueden variar un poco.
 
@@ -72,32 +105,4 @@ En caso de que sea una terminal de comandos de Windows se puede ejecutar:
 Tras ejecutar el comando en la parte izquierda de la terminal deberia verse el nombre del entorno virtual activado:
 
 ![Imagen entorno activado creado](./ImagenesREADME/EntornoVirtualActivado.png)
-
-### Paso 5: Crear un archivo _.env_ donde se almacenen las variables de entorno necesarias para acceder a Watson.
-
-#### Paso 5.1: Crear el archivo _.env_ en la carpeta del proyecto.
-
-Se debe crear un archivo que unicamente se llame _.env_ en la carpeta del proyecto. Es recomendable crearlo desde Visual Studio Code, para asegurar se que el nombre del archivo sea unicamente _.env_
-
-Tras crear el archivo, el proyecto deberia verse de la siguiente manera:
-
-![Imagen archivo .env vacio](./ImagenesREADME/EnvVacio.png)
-
-#### Paso 5.2: Escribir las variables de entorno necesarias en el archivo _.env_:
-
-Las variables de entorno que se deben escribir son las siguientes:
-
-```python
-WATSONX_API_KEY = 
-IBM_CLOUD_URL = https://us-south.ml.cloud.ibm.com
-WATSONX_PROJECT_ID = 
-```
-
-Se deben copiar estas tres variables dentro del archivo _.env_ del proyecto:
-
-![Imagen archivo .env parcial](./ImagenesREADME/ENVparcialmentelleno.png)
-
-Tras esto, debe escribir el API_KEY y el Project_ID que le sea asignado por los tutores durante el taller en las variables WATSONX_API_KEY y WATSONX_PROJECT_ID respectivamente.
-
-Un ejemplo de cómo deberia verse el archivo _.env_ tras incluir los valores dados por los tutores es el siguiente:
 

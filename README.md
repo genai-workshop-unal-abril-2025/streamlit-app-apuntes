@@ -1,7 +1,7 @@
 # Guia para la ejecución local de Apuntes App
 
 ## Prerrequisitos:
-- Tener instalado Python. (**Python 3.11.9** es la version recomendada. las versiones 3.12 y 3.13 requieren adicionalmente descargar las Visual Studio Build Tools para pdoer ejecutar la app)
+- Tener instalado Python. (La versión recomendada es **Python 3.11.9**. Esto debido a que en las versiones 3.12 y 3.13 se requiere descargar las Visual Studio Build Tools para poder instalar las dependencias de la app)
 - (Opcional) Tener instalado Visual Studio Code.
 
 ## Paso 1: Clonar o descargar este repositorio en tu computadora.
@@ -84,7 +84,7 @@ Tras ejecutar el comando debio crearse la carpeta _.venv_ dentro del proyecto:
 
 ## Paso 5: Activar el entorno virtual en una consola:
 
-### Paso 5.1: Crear una terminal ubicada en la carpeta del proyecto:
+### Paso 5.1: Tener una terminal ubicada en la carpeta del proyecto:
 
 ![Imagen Terminal Inicio](./ImagenesREADME/ImagenTerminalInicio.png)
 
@@ -132,7 +132,7 @@ En la terminal empezarán a instalarse varios paquetes, puede que este proceso t
 Se debe ejecutar el siguiente comando en la terminal:
 
 ```console
-streamlit run app.py
+streamlit run app_apuntes.py
 ```
 
 Tras esto debe salir el siguiente mensaje en la terminal:

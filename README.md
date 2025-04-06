@@ -132,7 +132,7 @@ En la terminal empezarán a instalarse varios paquetes, puede que este proceso t
 Se debe ejecutar el siguiente comando en la terminal:
 
 ```console
-streamlit run app_apuntes.py
+streamlit run apuntes_app.py
 ```
 
 Tras esto debe salir el siguiente mensaje en la terminal:

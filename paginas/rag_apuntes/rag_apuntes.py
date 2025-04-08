@@ -4,7 +4,7 @@ from chromadb.utils import embedding_functions
 from watsonx_connection import call_watsonx
 import torch
 
-#Esta imagen previene que salga una advertencia en consola
+#Esta linea previene que salga una advertencia en consola
 #Por un error que tiene temporalmente Streamlit con Torch.
 #No es obligatoria y no tiene relacion con la aplicacion
 torch.classes.__path__ = [] 
@@ -15,8 +15,9 @@ st.write("## Realizar una consulta a un LLM que se soporta en los apuntes mas re
 chroma_client = chromadb.PersistentClient(path="./chroma") 
 
 # Realizar una consulta a un LLM que se soporta en los documentos mas relevantes
-#Para esto, primero se verifica que exista la coleccion en chroma dentro del proyecto
-if "apuntes" in chroma_client.list_collections():
+#Para esto, primero se verifica que Se verifica que exista la collecion con nombre 'apuntes' en la base de datos
+lista_nombres_colecciones = [collection.name for collection in chroma_client.list_collections()]
+if "apuntes" in lista_nombres_colecciones:
     st.write("En el siguiente espacio puedes escribir una pregunta para realizar a un LLM, el cual va a intentar resolverla teniendo en cuenta los 3 documentos (apuntes) más relevantes que esten almacenados en la base de datos vectorial.")
     texto_consulta_llm = st.text_input("Escribe tu consulta para el LLM",placeholder="Escribe tu consulta")
 

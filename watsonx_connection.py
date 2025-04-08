@@ -39,16 +39,13 @@ def call_watsonx(
 
 def call_watsonx_vision_model(image):
 
-    #Cargar las variables de entorno
-    load_dotenv()
-
-    #Leer los bytes de la foto
+    #Leer los bytes de la imagen
     image_bytes = image.getvalue()
 
     #Codificar la imagen en base 64
     image_base64_encoded_bytes = base64.b64encode(image_bytes)
 
-    #Decodificar de base 64 a utf8
+    #Decodificar de base 64 a un string con codificacion utf8
     image_utf8_string = image_base64_encoded_bytes.decode('utf-8')
 
     #Crear un autenticador para llamar a WatsonX
@@ -78,8 +75,11 @@ def call_watsonx_vision_model(image):
     ],
 	"project_id": watsonx_project_id,
 	"model_id": "meta-llama/llama-3-2-90b-vision-instruct",
-	"decoding_method": "greedy",
-	"max_tokens": 3000
+	"max_tokens": 2000,
+    "temperature": 0,
+    "top_p": 1,
+    "frecuency_penalty":0,
+    "presence_penalty":0
     }
 
     #Headers de la peticion

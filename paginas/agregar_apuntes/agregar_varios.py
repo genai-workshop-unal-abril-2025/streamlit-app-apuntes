@@ -4,7 +4,7 @@ from chromadb.utils import embedding_functions
 from watsonx_connection import call_watsonx_vision_model
 import torch
 
-#Esta imagen previene que salga una advertencia en consola
+#Esta linea previene que salga una advertencia en consola
 #Por un error que tiene temporalmente Streamlit con Torch.
 #No es obligatoria y no tiene relacion con la aplicacion
 torch.classes.__path__ = [] 

@@ -75,7 +75,7 @@ def call_watsonx_vision_model(image):
     ],
 	"project_id": watsonx_project_id,
 	"model_id": "meta-llama/llama-3-2-90b-vision-instruct",
-	"max_tokens": 2000,
+	"max_tokens": 3000,
     "temperature": 0,
     "top_p": 1,
     "frecuency_penalty":0,

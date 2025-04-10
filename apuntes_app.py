@@ -1,4 +1,10 @@
 import streamlit as st
+import torch
+
+#Esta linea previene que salga una advertencia en consola
+#Por un error que tiene temporalmente Streamlit con Torch.
+#No es obligatoria y no tiene relacion con la aplicacion
+torch.classes.__path__ = [] 
 
 #Definir las páginas que va a tener la aplicacion
 inicio_page = st.Page(page='paginas/inicio/inicio.py', title='Inicio', icon='🏠')
